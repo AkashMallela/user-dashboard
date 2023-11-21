@@ -1,0 +1,169 @@
+.main-container {
+  display: flex;
+  height: 100vh;
+  font-size: 12px;
+}
+.main {
+  flex-grow: 1;
+  height: 100%;
+  padding: 1rem 3rem;
+}
+
+.main h1 {
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 2rem 0 1rem 0;
+}
+.table{
+  margin-bottom: 30px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.users-table th {
+  border: none;
+  background-color: var(--background-raised);
+}
+.users-table th,
+td {
+  padding: .7rem 1.5rem;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid var(--background-raised);
+}
+.users-table .t-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.t-user{
+  display: flex;
+  justify-content: space-between;
+}
+.t-user p,
+.users-table .date {
+  color: var(--content-secondary);
+}
+.t-risk.low {
+  color: var(--content-on-success);
+}
+.t-risk.medium {
+  color: var(--content-on-warning);
+}
+.t-risk.high {
+  color: var(--content-on-error);
+}
+.t-risk::before {
+  content: "● ";
+  padding-right: 2px;
+}
+
+.tabs1, .tabs2{
+  display: flex;
+  border-bottom: 3px solid var(--background-raised);
+  margin: 1rem 0;
+  width: 100%;
+}
+.tabs2{
+  display: flex;
+  justify-content: flex-end;
+}
+.tabs-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabs1 button, .tabs2 button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--content-secondary);
+  padding: 0 1.5rem;
+  padding-bottom: 1.5rem;
+  cursor: pointer;
+  transform: translateY(3px);
+}
+.tabs1 button.active{
+  color: var(--base-brand);
+  border-bottom: 3px solid var(--base-brand);
+}
+.filter{
+  display: flex;
+  align-items: center; 
+  gap: 1rem;
+  margin: 1rem 0;
+
+}
+.filter .search{
+  border: 3px solid var(--background-raised);
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5625rem 0.5rem 0.5rem 0.5625rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  
+}
+.filter button{
+  height: min-content;
+  border: none;
+  background-color: var(--background-raised);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  color: var(--content-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter button{
+  position: relative;
+  cursor: pointer;
+}
+.filter button .menu{
+  position: absolute;
+  width: max-content;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.2rem;
+  transform: translateY(100%);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 2px solid var(--background-raised);
+  display: none;
+}
+.filter button .menu .menu-item{
+  padding: 0.7rem 3rem;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--content-secondary);
+}
+.filter button .menu .menu-item:hover{
+  background-color: #EAEAFE;
+  color: var(--content-primary);
+}
+.filter button.active .menu{
+  display: block;
+}
+.filter img{
+  padding: 0.2rem;
+}
+.filter button.active img{
+  transform: rotate(180deg);
+  transition: transform 500ms ease;
+}
+.tabs2 .danger-btn{
+  padding: .75rem 2rem;
+  border-radius: 5px;
+  display: flex;
+  background-color: #F6D8D8;
+  color: #D13B3B;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 15px;
+}

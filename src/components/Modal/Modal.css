@@ -1,0 +1,28 @@
+.modal-container{
+    background-color: rgba(0, 0, 0, 0.515);
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+
+.dialog{
+    width: min-content;
+    min-width: 512px;
+    border-radius: 12px;
+    background-color: white;
+}
+.modal-open{
+  overflow: hidden;
+}
+.displaynone{
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .dialog{
+       min-width: 300px; 
+    }
+}
