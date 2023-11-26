@@ -8,11 +8,28 @@ import Modal from "./components/Modal/Modal";
 import CloseAccount from "./components/Form/Form";
 import Pending from "./components/Pending";
 import Completed from "./components/Completed";
+import {usersData} from './components/Sidebar/userdata.jsx'
 
 function App() {
   const [triggerReason, setTriggerReason] = useState(false);
   const [riskLevel, setRiskLevel] = useState(false);
   const [currentTab, setCurrentTab] = useState("pending");
+
+  const [filterData, setFilterData] = useState(usersData);
+  const [searchInput, setSearchInput] = useState([]);
+
+  const filteredData = (e)=>{
+    setSearchInput(e.target.value)
+    const value = e.target.value.toLowerCase()
+    if(value === ''){
+      setFilterData(usersData);
+      return ;
+    }
+    const d = usersData.filter((item) =>{
+      return item.name.toLowerCase().includes(value) || item.email.toLowerCase().includes(value)
+    })
+    setFilterData(d);
+  }
   const [modalOpen, setModalOpen] = useState(false)
   return (
     <div className="main-container">
@@ -31,7 +48,7 @@ function App() {
           </div>
         </div>
         <div className="filter">
-          <div className="search"><img src={search} alt="search" /><input type="text" placeholder="Search" /></div>
+          <div className="search"><img src={search} alt="search" /><input type="text" placeholder="Search" value={searchInput} onChange={filteredData} /></div>
           <button className={triggerReason ? "active" : ""} onClick={() => setTriggerReason(prev => !prev)}>Trigger reason   <img alt="arrow" src={arrowdown} />
             <div className="menu">
             <button className="menu-item">Hard flag</button>
@@ -48,7 +65,7 @@ function App() {
               <button className="menu-item">Low</button>
           </div></button>
         </div>
-        {currentTab === "pending" ? <Pending /> : <Completed />}
+        {currentTab === "pending" ? <Pending usersData={filterData} /> : <Completed usersData={filterData} />}
       </div>
       <Modal open={modalOpen} setOpen={setModalOpen}>
         <div onClick={(e) => e.stopPropagation()} className="dialog">

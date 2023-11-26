@@ -1,4 +1,3 @@
-import ExternaLLink from '../../assets/external-link.svg'
 
 export const usersData = [
     {

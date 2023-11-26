@@ -1,9 +1,12 @@
 import React from "react";
-import { usersData } from "./Sidebar/userdata";
 import ExternaLLink from '../assets/external-link.svg'
 
 
-export default function Completed(){
+export default function Completed({usersData}){
+
+  
+
+
     return(
         <div className='table'>
         <table className="users-table">

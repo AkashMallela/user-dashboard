@@ -1,9 +1,8 @@
 import React from "react";
-import { usersData } from "./Sidebar/userdata";
 import ExternaLLink from '../assets/external-link.svg'
 
 
-export default function Pending(){
+export default function Pending({usersData}){
     return(
         <div className="table">
           <table className="users-table">
